@@ -1,0 +1,160 @@
+.calculate {
+    margin-bottom: 13rem;
+}
+
+.calculate__content {
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+.calculate__image {
+    width: 16rem;
+    height: auto;
+    margin-right: 23rem;
+    margin-left: auto;
+}
+
+.calculate__heading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+    font-family: var(--raleway);
+}
+
+.calculate__form {
+    .parsley-errors-list.filled {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        color: #f57e77;
+        margin-top: 0.8rem;
+    }
+}
+
+.calculate__form-policy {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #828282;
+    font-family: var(--inter);
+    text-align: right;
+    margin-bottom: 1.6rem;
+    a {
+        text-decoration: underline;
+
+        transition: all 0.2s;
+
+        @media (hover: hover) {
+            &:hover {
+                text-decoration-color: transparent;
+            }
+        }
+    }
+}
+
+.calculate__form-row {
+    @include breakpointMF(small-tablet) {
+        display: grid;
+        align-items: flex-start;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr auto;
+    }
+}
+
+.calculate__form-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr);
+    grid-gap: 1rem;
+    align-items: flex-start;
+}
+
+.calculate__form-input {
+    display: block;
+    height: 7rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 0.8rem;
+    padding: 0 2rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    font-family: var(--inter);
+    color: #0d1134;
+    transition: color 0.2s, border-color 0.2s;
+    // padding-right: 6rem;
+
+    &:not(:placeholder-shown) {
+        border-color: #828282;
+        color: #828282;
+    }
+
+    &.parsley-error {
+        border-color: #f57e77;
+    }
+
+    &.parsley-success {
+        border-color: #3f9a78;
+        // background-image: url('../img/success.svg');
+        // background-repeat: no-repeat;
+        // background-size: 3rem auto;
+        // background-position: right 2rem center;
+    }
+    &:focus {
+        border-color: var(--primary-color);
+        color: #0d1134;
+        background-image: none;
+    }
+
+    @include placeholder {
+        color: #828282;
+    }
+}
+
+.calculate__form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    font-family: var(--inter);
+    padding: 2rem 5.6rem;
+    color: white;
+    position: relative;
+    z-index: 1;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: color 0.2s, background-color 0.2s;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, #4f64d7 0%, #1c2d83 100%);
+        z-index: -1;
+        transition: opacity 0.2s;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background: #afbfdd;
+            &::before {
+                opacity: 0;
+            }
+        }
+        &:active {
+            background: #0d1134;
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+}

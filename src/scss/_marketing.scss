@@ -1,0 +1,289 @@
+.marketing {
+    margin-bottom: 14rem;
+}
+
+.marketing__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.marketing__certificates {
+    width: 34rem;
+    flex-shrink: 0;
+    margin-left: auto;
+    margin-bottom: 30rem;
+}
+
+.marketing__certificates-heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: #999999;
+    margin-bottom: 0.4rem;
+}
+
+.marketing__certificates-list-item {
+    border-top: 1px solid #f0f0f0;
+}
+.marketing__certificates-link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    font-family: var(--raleway);
+    padding: 0.5rem 0;
+    position: relative;
+    display: block;
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(180deg, #4f64d7 0%, #1c2d83 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        transition: opacity 0.2s;
+        opacity: 0;
+        z-index: 2;
+        padding: 0.5rem 0;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            color: #afbfdd;
+        }
+
+        &:active {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.marketing__top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-left: 3rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 30;
+}
+
+.marketing__heading {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6.4rem;
+    line-height: 7.4rem;
+    text-transform: uppercase;
+    font-family: var(--raleway);
+}
+
+.marketing__practice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 34rem;
+    flex-shrink: 0;
+}
+
+.marketing__practice-top-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: var(--raleway);
+}
+
+.marketing__practice-amount {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27.2rem;
+    line-height: 30rem;
+    letter-spacing: -0.1em;
+    background: linear-gradient(180deg, #4f64d7 0%, #1c2d83 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-left: 1rem;
+    padding-right: 4rem;
+    white-space: nowrap;
+    margin-top: -3.5rem;
+    box-sizing: content-box;
+    user-select: none;
+}
+
+.marketing__practice-bottom-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: var(--raleway);
+    margin-top: -4rem;
+}
+
+.marketing__card {
+    padding: 3rem;
+    padding-top: 4rem;
+    background: linear-gradient(180deg, #4f64d7 0%, #1c2d83 100%);
+    border-radius: 6.4rem;
+    color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    min-height: 72rem;
+    margin-bottom: 2.4rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.marketing__partners-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-gap: 1rem;
+}
+
+.marketing__partners-card {
+    position: relative;
+    border: 1px solid #cfcfcf;
+    border-radius: 6.4rem;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    &::before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: #f5f5f5;
+            border-color: #f5f5f5;
+            .marketing__partners-card-image {
+                &:nth-child(2) {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.marketing__partners-card-content {
+    position: absolute;
+    inset: -1px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(180deg, #4f64d7 0%, #1c2d83 100%);
+    border-radius: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: white;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    @include customScrollbar();
+
+    .active & {
+        opacity: 1;
+        visibility: inherit;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+}
+
+.marketing__partners-card-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s;
+
+    &:nth-child(2) {
+        opacity: 0;
+    }
+}
+
+.marketing__card-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6.4rem;
+    line-height: 7.4rem;
+    font-family: var(--raleway);
+    max-width: 96.5rem;
+    text-transform: uppercase;
+}
+
+.marketing__card-link {
+    align-self: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #fafafa;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    border-radius: 50%;
+    color: #fafafa;
+    width: 11rem;
+    height: 11rem;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+    margin-top: -3rem;
+    @media (hover: hover) {
+        &:hover {
+            background: #afbfdd;
+            border-color: #afbfdd;
+        }
+
+        &:active {
+            background: #0d1134;
+            border-color: #0d1134;
+        }
+    }
+}
+
+.marketing__card-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 4.8rem;
+    margin-top: auto;
+}
+
+.marketing__card-bottom-link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.4rem;
+}
+
+.marketing__card-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: -1;
+}
